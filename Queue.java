@@ -13,14 +13,12 @@ public class Queue {
 
         static void execute() {
           for (int i = 0; i < 5; i++) {  
-            Runnable producer = new Producer(prop, bank, queue);  
-            pool.execute(producer)
-            Runnable consumer = new Consumer(prop, bank, queue);  
-            pool.execute(consumer); 
+            pool.submit(new Producer(prop, bank, queue));
+            pool.submit(new Consume(prop, bank, queue));
           }        
 	}
 
         static void shutdown() {  
-          executor.shutdown();       
+          pool.shutdown();       
 	}
 }
