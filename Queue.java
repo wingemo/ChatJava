@@ -7,8 +7,8 @@ public class Queue {
        Bank bank;
 
        public Queue(int year, String name) {
-              queue = new ArrayBlockingQueue(10);
-              executor = Executors.newFixedThreadPool(5);
+           queue = new ArrayBlockingQueue(10);
+           executor = Executors.newFixedThreadPool(5);
         }
 
         static void execute() {
