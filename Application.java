@@ -11,7 +11,6 @@ public class Application {
 
             Queue queue = new Queue(prop)
             queue.execute()
-            Thread.sleep(1000);
             queue.shutdown()
 
         } catch (FileNotFoundException e) {
