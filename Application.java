@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.Properties;
 
-public class DBHandlertest {
-
+public class Application {
     public static void main(String[] args) {
         try {
             String configFilePath = "src/config.properties";
