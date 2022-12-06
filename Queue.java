@@ -4,6 +4,7 @@ import java.util.concurrent.BlockingQueue;
 public class Queue {
        BlockingQueue queue;
        ExecutorService executor;
+       Bank bank;
 
        public Queue(int year, String name) {
               queue = new ArrayBlockingQueue(10);
@@ -12,9 +13,9 @@ public class Queue {
 
         static void execute() {
           for (int i = 0; i < 5; i++) {  
-            Runnable producer = new Producer(prop, queue);  
+            Runnable producer = new Producer(prop, bank, queue);  
             executor.execute(producer)
-            Runnable consumer = new Consumer(prop, queue);  
+            Runnable consumer = new Consumer(prop, bank, queue);  
             executor.execute(consumer); 
           }        
 	}
