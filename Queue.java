@@ -10,13 +10,16 @@ public class Queue {
               executor = Executors.newFixedThreadPool(5);
         }
 
-        static void myMethod() {
+        static void execute() {
           for (int i = 0; i < 5; i++) {  
-            Runnable worker = new WorkerThread("" + i);  
+            Runnable worker = new WorkerThread(prop, queue);  
             executor.execute(worker); 
-            Runnable consumer = new WorkerThread("" + i);  
+            Runnable consumer = new WorkerThread(prop, queue);  
             executor.execute(consumer); 
-          }  
+          }        
+	}
+
+        static void shutdown() {  
           executor.shutdown();       
 	}
 }
