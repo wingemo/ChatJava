@@ -8,6 +8,10 @@ public class Application {
             FileInputStream propsInput = new FileInputStream(configFilePath);
             Properties prop = new Properties();
             prop.load(propsInput);
+
+            Queue queue = new Queue(prop)
+            queue.start()
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
